@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-17 21:26:47
- * @LastEditTime: 2022-07-23 13:43:31
+ * @LastEditTime: 2022-08-24 22:17:00
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Controllers/PermissionController.php
+ * @FilePath: /admin-php/app/Http/Controllers/PermissionController.php
  */
 
 namespace App\Http\Controllers;
@@ -23,7 +23,7 @@ class PermissionController extends Controller
 
     public function index()
     {
-        return PermissionResource::collection(Permission::latest()->paginate());
+        return PermissionResource::collection(Permission::latest()->paginate(request('per_page', 15)));
     }
 
     public function store(StorePermissionRequest $request)

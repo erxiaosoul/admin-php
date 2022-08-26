@@ -1,4 +1,11 @@
 <?php
+/*
+ * @Author: 贾二小
+ * @Date: 2022-08-20 21:08:44
+ * @LastEditTime: 2022-08-24 22:16:55
+ * @LastEditors: 贾二小
+ * @FilePath: /admin-php/app/Http/Controllers/RoleController.php
+ */
 
 namespace App\Http\Controllers;
 
@@ -16,7 +23,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        return RoleResource::collection(Role::latest()->paginate());
+        return RoleResource::collection(Role::latest()->paginate(request('per_page', 15)));
     }
 
     public function store(StoreRoleRequest $request)

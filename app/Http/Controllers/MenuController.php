@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-24 20:29:16
- * @LastEditTime: 2022-08-08 23:38:43
+ * @LastEditTime: 2022-08-24 22:17:05
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Controllers/MenuController.php
+ * @FilePath: /admin-php/app/Http/Controllers/MenuController.php
  */
 
 namespace App\Http\Controllers;
@@ -23,7 +23,7 @@ class MenuController extends Controller
 
     public function index()
     {
-        return MenuResource::collection(Menu::latest()->paginate());
+        return MenuResource::collection(Menu::latest()->paginate(request('per_page', 15)));
     }
 
     public function store(StoreMenuRequest $request)

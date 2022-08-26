@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-08-05 17:18:10
- * @LastEditTime: 2022-08-20 13:49:36
+ * @LastEditTime: 2022-08-24 22:12:34
  * @LastEditors: 贾二小
- * @FilePath: /EXUI_API/app/Http/Controllers/UserController.php
+ * @FilePath: /admin-php/app/Http/Controllers/UserController.php
  */
 
 namespace App\Http\Controllers;
@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function index()
     {
-        return UserResource::collection(User::latest()->paginate());
+        return UserResource::collection(User::latest()->paginate(request('per_page', 15)));
     }
 
     public function store(StoreUserRequest $request)

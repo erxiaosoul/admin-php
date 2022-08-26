@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-17 12:22:14
- * @LastEditTime: 2022-07-23 14:05:29
+ * @LastEditTime: 2022-08-24 22:17:25
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Controllers/ConfigController.php
+ * @FilePath: /admin-php/app/Http/Controllers/ConfigController.php
  */
 
 namespace App\Http\Controllers;
@@ -23,7 +23,7 @@ class ConfigController extends Controller
 
     public function index()
     {
-        return ConfigResource::collection(Config::latest()->paginate());
+        return ConfigResource::collection(Config::latest()->paginate(request('per_page', 15)));
     }
 
     public function store(StoreConfigRequest $request)
