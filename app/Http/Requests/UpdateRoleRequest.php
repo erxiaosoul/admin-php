@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-17 22:22:37
- * @LastEditTime: 2022-07-20 21:14:34
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Requests/UpdateRoleRequest.php
- */
 
 namespace App\Http\Requests;
 
@@ -19,5 +12,10 @@ class UpdateRoleRequest extends FormRequest
             'name' => ['required', 'unique:roles,name,' . request('id')],
             'title' => ['required', 'unique:roles,title,' . request('id')],
         ];
+    }
+
+    public function attributes()
+    {
+        return ['title' => '角色名称', 'name' => '角色标识'];
     }
 }

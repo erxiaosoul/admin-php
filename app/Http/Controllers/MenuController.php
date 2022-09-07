@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-24 20:29:16
- * @LastEditTime: 2022-08-24 22:17:05
- * @LastEditors: 贾二小
- * @FilePath: /admin-php/app/Http/Controllers/MenuController.php
- */
 
 namespace App\Http\Controllers;
 
@@ -28,7 +21,8 @@ class MenuController extends Controller
 
     public function store(StoreMenuRequest $request)
     {
-        $menu = Menu::create(['pid' => $request->pid, 'name' => $request->name, 'path' => $request->path, 'redirect' => $request->redirect, 'component' => $request->component, 'meta' => $request->meta]);
+        $menu = new Menu();
+        $menu->full($request->input())->save();
         return $this->success('菜单添加成功', $menu);
     }
 

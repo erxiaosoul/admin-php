@@ -28,8 +28,9 @@ class ConfigController extends Controller
 
     public function store(StoreConfigRequest $request)
     {
-        $role = Config::create(['key' => $request->key, 'value' => $request->value, 'title' => $request->title, 'category' => $request->category]);
-        return $this->success('配置添加成功', $role);
+        $config = new Config();
+        $config->full($request->input())->save();
+        return $this->success('配置添加成功', $config);
     }
 
     public function show(Config $config)

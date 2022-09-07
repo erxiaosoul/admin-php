@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-17 21:26:47
- * @LastEditTime: 2022-07-17 23:31:17
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Requests/UpdatePermissionRequest.php
- */
 
 namespace App\Http\Requests;
 
@@ -19,5 +12,10 @@ class UpdatePermissionRequest extends FormRequest
             'name' => ['required', 'unique:permissions,name,' . request('id')],
             'title' => ['required', 'unique:permissions,title,' . request('id')],
         ];
+    }
+
+    public function attributes()
+    {
+        return ['title' => '权限名称', 'name' => '权限标识'];
     }
 }

@@ -14,6 +14,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -29,8 +30,14 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $role = User::create(['name' => $request->name, 'email' => $request->email, 'mobile' => $request->mobile]);
-        return $this->success('用户添加成功', $role);
+
+        $user = new User();
+        $user->full($request->input());
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return $this->success('用户添加成功', $user);
     }
 
     public function show(User $user)

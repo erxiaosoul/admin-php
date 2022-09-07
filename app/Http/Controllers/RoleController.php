@@ -28,7 +28,8 @@ class RoleController extends Controller
 
     public function store(StoreRoleRequest $request)
     {
-        $role = Role::create(['name' => $request->name, 'title' => $request->title]);
+        $role = new Role();
+        $role->full($request->input())->save();
         return $this->success('角色添加成功', $role);
     }
 

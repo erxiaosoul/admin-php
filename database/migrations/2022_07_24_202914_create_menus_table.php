@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-24 20:29:14
- * @LastEditTime: 2022-08-06 00:01:42
+ * @LastEditTime: 2022-09-06 00:05:30
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/database/migrations/2022_07_24_202914_create_menus_table.php
+ * @FilePath: /admin-php/database/migrations/2022_07_24_202914_create_menus_table.php
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('component', 50)->default('')->comment('视图');
             $table->json('meta')->nullable()->comment('路由元信息');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

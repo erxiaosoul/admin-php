@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-17 01:50:12
- * @LastEditTime: 2022-07-17 01:50:20
+ * @LastEditTime: 2022-09-05 23:46:02
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Services/UserService.php
+ * @FilePath: /admin-php/app/Services/UserService.php
  */
 
 namespace App\Services;
@@ -20,6 +20,6 @@ class UserService
      */
     public function fieldName()
     {
-        return filter_var(request('account'), FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
+        return filter_var(request('account'), FILTER_VALIDATE_EMAIL) ? 'email' : 'number';
     }
 }

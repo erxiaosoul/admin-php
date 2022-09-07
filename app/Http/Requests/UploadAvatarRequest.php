@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-08-05 17:29:00
- * @LastEditTime: 2022-08-05 17:33:09
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Requests/UploadAvatarRequest.php
- */
 
 namespace App\Http\Requests;
 

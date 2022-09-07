@@ -19,8 +19,7 @@ class LoginController extends Controller
 {
     public function __invoke(LoginRequest $request)
     {
-
-        $user = User::where(filter_var(request('account'), FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile', $request->account)->first();
+        $user = User::where(app('user')->fieldName(), $request->account)->first();
         $data = [
             'user' => new UserResource($user),
             'token' => $user->createToken('auth')->plainTextToken

@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-08-05 17:25:58
- * @LastEditTime: 2022-08-05 17:29:36
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Controllers/UploadController.php
- */
 
 namespace App\Http\Controllers;
 
@@ -28,6 +21,7 @@ class UploadController extends Controller
         $user->save();
         return ['url' => $res['url']];
     }
+
     public function image(UploadImageRequest $request)
     {
         $res = app('upload')->file($request->file);

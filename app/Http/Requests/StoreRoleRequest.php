@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-17 22:22:37
- * @LastEditTime: 2022-07-20 21:14:09
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Requests/StoreRoleRequest.php
- */
 
 namespace App\Http\Requests;
 
@@ -16,8 +9,8 @@ class StoreRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:roles,name'],
-            'title' => ['required', 'unique:roles,title'],
+            'name' => ['required', 'unique:roles'],
+            'title' => ['required', 'unique:roles'],
         ];
     }
 

@@ -2,9 +2,9 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-07-17 12:22:12
- * @LastEditTime: 2022-07-17 12:34:10
+ * @LastEditTime: 2022-09-05 23:53:52
  * @LastEditors: 贾二小
- * @FilePath: /exuiApi/database/migrations/2022_07_17_122212_create_configs_table.php
+ * @FilePath: /admin-php/database/migrations/2022_07_17_122212_create_configs_table.php
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('title', 50)->nullable()->comment('标题');
             $table->string('category', 50)->nullable()->comment('分类');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

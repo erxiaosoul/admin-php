@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-17 21:26:47
- * @LastEditTime: 2022-08-24 22:17:00
- * @LastEditors: 贾二小
- * @FilePath: /admin-php/app/Http/Controllers/PermissionController.php
- */
 
 namespace App\Http\Controllers;
 
@@ -28,7 +21,8 @@ class PermissionController extends Controller
 
     public function store(StorePermissionRequest $request)
     {
-        $permission = Permission::create(['name' => $request->name, 'title' => $request->title]);
+        $permission = new Permission();
+        $permission->full($request->input())->save();
         return $this->success('权限添加成功', $permission);
     }
 
@@ -39,7 +33,6 @@ class PermissionController extends Controller
 
     public function update(UpdatePermissionRequest $request, Permission $permission)
     {
-
         $permission->fill($request->input())->save();
         return $this->success('权限编辑成功', $permission);
     }

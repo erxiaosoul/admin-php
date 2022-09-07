@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-24 20:29:16
- * @LastEditTime: 2022-07-24 21:20:00
- * @LastEditors: 贾二小
- * @FilePath: /exuiApi/app/Http/Requests/StoreMenuRequest.php
- */
 
 namespace App\Http\Requests;
 
@@ -16,7 +9,14 @@ class StoreMenuRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'unique:munes'],
+            'path' => ['required', 'unique:munes'],
+            'meta.title' => 'required'
         ];
+    }
+
+    public function attributes()
+    {
+        return ['name' => '路由名称', 'path' => '路由地址', 'meta.title' => '菜单标题',];
     }
 }

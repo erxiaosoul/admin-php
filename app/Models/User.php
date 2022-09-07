@@ -2,15 +2,16 @@
 /*
  * @Author: 贾二小
  * @Date: 2022-06-28 22:36:21
- * @LastEditTime: 2022-08-20 13:45:04
+ * @LastEditTime: 2022-09-05 23:15:36
  * @LastEditors: 贾二小
- * @FilePath: /EXUI_API/app/Models/User.php
+ * @FilePath: /admin-php/app/Models/User.php
  */
 
 namespace App\Models;
 
 use App\Models\Scopes\ScopeTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,30 +19,23 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, ScopeTrait;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, ScopeTrait;
+
     protected $with = ['roles'];
 
     protected $guard_name = ['sanctum'];
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = ['name', 'email', 'mobile', 'password'];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * 可批量赋值的属性。
      *
-     * @var array<int, string>
+     * @var array
      */
-    protected $hidden = ['password', 'remember_token', 'openid', 'unionid', 'miniapp_openid'];
+    protected $fillable = ['number', 'name', 'avatar', 'sex', 'email', 'mobile', 'password'];
 
     /**
-     * The attributes that should be cast.
+     * 数组中的属性会被隐藏。
      *
-     * @var array<string, string>
+     * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $hidden = ['password', 'remember_token', 'deleted_at'];
 }
