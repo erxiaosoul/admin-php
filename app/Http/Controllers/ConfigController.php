@@ -23,7 +23,7 @@ class ConfigController extends Controller
 
     public function index()
     {
-        return ConfigResource::collection(Config::latest()->paginate(request('per_page', 15)));
+        return ConfigResource::collection(Config::latest()->paginate(request('per_page', 5)));
     }
 
     public function store(StoreConfigRequest $request)

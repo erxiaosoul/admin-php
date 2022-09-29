@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\SexStatus;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    return SexStatus::cases();
 });

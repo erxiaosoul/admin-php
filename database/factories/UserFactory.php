@@ -28,7 +28,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'number' => fake()->numberBetween(100, 999999),
-            'sex' => fake()->numberBetween(0, 1),
+            'sex' => fake()->numberBetween(1, 2),
             'mobile' => fake()->phoneNumber(),
             'email' => fake()->safeEmail(),
             'password' => Hash::make('123456'),

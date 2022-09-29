@@ -9,6 +9,7 @@
 
 namespace App\Models;
 
+use App\Enums\SexStatus;
 use App\Models\Scopes\ScopeTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -38,4 +39,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = ['password', 'remember_token', 'deleted_at'];
+
+    /**
+     * 要转换的属性
+     *
+     * @var array
+     */
+    protected $casts = [
+        'sex' => SexStatus::class,
+        'created_at' => 'datetime:Y-m-d H:i:s',
+        'updated_at' => 'datetime:Y-m-d H:i:s',
+    ];
 }

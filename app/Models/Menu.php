@@ -1,11 +1,4 @@
 <?php
-/*
- * @Author: 贾二小
- * @Date: 2022-07-24 20:29:14
- * @LastEditTime: 2022-09-05 23:54:26
- * @LastEditors: 贾二小
- * @FilePath: /admin-php/app/Models/Menu.php
- */
 
 namespace App\Models;
 
